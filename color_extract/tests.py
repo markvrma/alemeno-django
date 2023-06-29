@@ -1,4 +1,4 @@
-from django.test import TestCase,Client
+from django.test import TestCase, Client
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 from .models import StripFile
@@ -11,6 +11,9 @@ import os
 class StripFileTestCase(TestCase):
 
     def setUp(self):
+        '''
+        initialize the repeated paths, and values
+        '''
         self.image_data = b'/strip_images/image3.jpg'
         self.image_file = SimpleUploadedFile(
             'uploads/test_image.jpg', self.image_data, content_type='image/jpeg')
@@ -18,7 +21,6 @@ class StripFileTestCase(TestCase):
             189, 186, 167], "NIT": [186, 179, 169], "LEU": [84, 78, 78], "GLU": [143, 136, 120], "SG": [170, 165, 162], "PH": [161, 155, 155]}
         self.image_path = "./strip_images/image3.jpg"
         self.abs_path = os.path.abspath(self.image_path)
-
 
     def test_data_upload(self):
         '''
@@ -40,36 +42,27 @@ class StripFileTestCase(TestCase):
         '''
 
         image_file = open(self.abs_path, "rb")
-        
+
         test_extracted_color = extract_colors(image_file)
 
         self.assertIsInstance(test_extracted_color, dict)
-        self.assertEqual(test_extracted_color,self.color_val)
+        self.assertEqual(test_extracted_color, self.color_val)
 
     def test_upload_image(self):
+        '''
+        checks if upload_image view is working
+        '''
 
         client = Client()
-        
-        # Open the test image file and create a POST request with the image file
+
         with open(self.abs_path, 'rb') as image_file:
-            response = client.post(reverse('upload-image'), {'file': image_file})
-        
-        # Assert that the response status code is 200 (OK)
+            response = client.post(
+                reverse('upload-image'), {'file': image_file})
+
         self.assertEqual(response.status_code, 200)
         
-        # Retrieve the created StripFile object from the database
         strip_file = StripFile.objects.first()
-        
-        # Assert that the StripFile object is created
+
         self.assertIsNotNone(strip_file)
-        
-        # Assert that the extracted_colors field of the StripFile object is populated
         self.assertIsNotNone(strip_file.color_values)
-        
-        
-        self.assertEqual(strip_file.color_values,self.color_val)
-
-
-
-        
-        
+        self.assertEqual(strip_file.color_values, self.color_val)
