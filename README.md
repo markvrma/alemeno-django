@@ -1,4 +1,4 @@
-# Urine Test Color Identifier
+# Urine Test Color Identifier 🧪
 
 ### Color extraction script
 `color_extract/color_extract.py`
