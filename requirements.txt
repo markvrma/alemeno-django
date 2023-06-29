@@ -1,0 +1,8 @@
+autopep8 
+Django==4.2.1
+django-bootstrap-v5 
+django-cors-headers==4.1.0
+django-environ==0.10.0
+djangorestframework==3.14.0
+Markdown==3.4.3
+opencv-python==4.7.0.72
