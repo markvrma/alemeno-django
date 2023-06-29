@@ -1,10 +1,14 @@
 import cv2
+import numpy as np
+import json
 
 
-def extract_colors(image):
+def extract_colors(img):
     '''
     applies thresholding and contour detection on image to identify specific regions, and then extracts the dominant color of each region. 
     '''
+
+    image = cv2.imdecode(np.fromstring(img.read(), np.uint8), cv2.IMREAD_UNCHANGED)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, threshold = cv2.threshold(
         gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -31,4 +35,6 @@ def extract_colors(image):
 
             extracted_colors[color_name] = rgb_values
 
-    return extract_colors
+    return extracted_colors
+
+

@@ -1,0 +1,42 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+
+<style>
+  .upload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+  }
+  .result{
+    width: 200px; 
+    margin-left: auto; 
+    margin-right: auto;
+  }
+
+</style>
+
+
+<div class="upload">
+  <form action="{% url 'upload-image' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Upload">
+  </form>
+</div>
+
+{% if extracted_colors %}
+<h3><center>Result<center></h3>
+<div class="result">
+  {% for key, value in extracted_colors.items %}
+  <div style="display:block;">
+    <span style="display: inline-block; width: 20px; height: 20px; background-color: rgb({{ value.0 }}, {{ value.1 }}, {{ value.2 }});"></span>
+    {{key}}:{{value}}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+
+{% endblock content %}
