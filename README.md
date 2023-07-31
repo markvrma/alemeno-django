@@ -7,6 +7,7 @@
 - [Tests](/color_extract/tests.py)
 - [Strip Model](/color_extract/models.py)
 - [Strip Form](/color_extract/forms.py)
+  
 Code is commented.
 
 **Tests have been written for Instance creation and functions**
