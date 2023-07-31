@@ -3,11 +3,11 @@
 
 ### Relevant Files
 code is commented
-[Color Extraction](/color_extract/extract_color.py)
-[Views](/color_extract/views.py)
-[Tests](/color_extract/tests.py)
-[Strip Model](/color_extract/models.py)
-[Strip Form](/color_extract/forms.py)
+- [Color Extraction](/color_extract/extract_color.py)
+- [Views](/color_extract/views.py)
+- [Tests](/color_extract/tests.py)
+- [Strip Model](/color_extract/models.py)
+- [Strip Form](/color_extract/forms.py)
 
 **Tests have been written for Instance creation and functions**
 *refer `color_extract/tests.py`*
