@@ -2,12 +2,12 @@
 ##### Due to time constraints I could not rewrite the application in Flask.
 
 ### Relevant Files
-code is commented
 - [Color Extraction](/color_extract/extract_color.py)
 - [Views](/color_extract/views.py)
 - [Tests](/color_extract/tests.py)
 - [Strip Model](/color_extract/models.py)
 - [Strip Form](/color_extract/forms.py)
+Code is commented.
 
 **Tests have been written for Instance creation and functions**
 *refer `color_extract/tests.py`*
