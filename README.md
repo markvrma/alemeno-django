@@ -1,8 +1,12 @@
 # Urine Test Color Identifier 🧪
 ##### Due to time constraints I could not rewrite the application in Flask.
 
-### Color extraction script
-`color_extract/color_extract.py`
+### Relevant Files
+[a relative link](/color_extract/extract_color.py)
+[a relative link](/color_extract/views.py)
+[a relative link](/color_extract/tests.py)
+[a relative link](/color_extract/models.py)
+[a relative link](/color_extract/forms.py)
 
 **Tests have been written for Instance creation and functions**
 *refer `color_extract/tests.py`*
