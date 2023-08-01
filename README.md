@@ -19,7 +19,7 @@ Code is commented.
 - run `pip install -r requirements.txt`
 - `python manage.py runserver`
 
-### How to run Tests
+### How to run Tests locally(There is a CI pipeline setup)
 - Clone the repo
 - `cd main`
 - run `pip install -r requirements.txt`
